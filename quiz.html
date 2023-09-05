@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="emailverify">Verify Email</button>
+
+    
+    <header>
+        <h1>The Learner Academy</h1>
+    </header>
+    
+    <main>
+        <div class="entry-test">
+            <h2>Entry Test</h2>
+            <p>Take the entry test to determine which course is suitable for you.</p>
+            <button class="start-entry-test-btn">Start Entry Test</button>
+        </div>
+    
+        <div class="quiz-card">
+            <h2>HTML </h2>
+            <p>This is the first course, focusing on HTML.You can start Quiz 1 to test your knowledge.</p>
+            <button class="start-quiz-btn">Start Quiz 1</button>
+        </div>
+        
+        <div class="quiz-card">
+            <h2>CSS </h2>
+            <p>The second course is all about CSS.
+                Click "Start Quiz 2" to begin.</p>
+            <button class="start-quiz-btn">Start Quiz 2</button>
+        </div>
+        
+        <div class="quiz-card">
+            <h2>Java Script (ES5)</h2>
+            <p>Course 3 covers JavaScript (ES5).
+                Begin Quiz 3 by clicking the button.</p>
+            <button class="start-quiz-btn">Start Quiz 3</button>
+        </div>
+
+        <div id="quiz-popup" class="quiz-popup">
+            <div class="quiz-content">
+                <h2>Quiz 1</h2>
+                <!-- Add your quiz questions and options here -->
+                <button  id="close-popup" class="close-popup-btn">Close</button>
+            </div>
+   
+        </div>
+    
+    </main>
+
+
+    <footer>
+            <p>&copy; Developed by Ibrahim
+        </p>
+    </footer>
+
+
+
+
+    <script type="module" src="app.js"></script>
+    <script  type="module" src="login.js"></script>
+    
+</body>
+</html>

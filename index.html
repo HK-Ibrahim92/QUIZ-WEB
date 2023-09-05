@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <hr />
+                <div class="group-input">
+                    <i class="fa fa-lock"></i>
+                    <input type="text" id="user" placeholder="Name" />
+                </div>
+                <div class="group-input">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" id="email" placeholder="email" />
+                </div>
+                <div class="group-input">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" />
+                </div>
+                <button  id="signup">Sign Up</button>
+                <div class="social-login">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+                <hr />
+                <div class="group-input">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" placeholder="Email" id="logemail" />
+                </div>
+
+                <div class="group-input">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" id="logpassword"/>
+                </div>
+                <button id="login">Login</button>
+
+                <div class="social-login">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="#" id="forgot" >Forgot your password?</a>
+            </form>
+        </div>
+
+
+        <div class="side-element-container">
+            <div class="side-element">
+                <div class="side-element-panel side-element-left">
+                    <h1>Hello!</h1>
+                    <p>Enter your personal details and start having fun with us</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="side-element-panel side-element-right">
+                    <h1>Welcome!</h1>
+                    <p>
+                        Happy to see you again, login and have fun with us.
+                    </p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
+    <script type="module" src="login.js"></script>
+    <script type="module" src="login.js"></script>
+</body>
+
+</html>
