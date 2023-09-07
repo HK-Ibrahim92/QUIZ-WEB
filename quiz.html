@@ -11,13 +11,12 @@
 </head>
 <body>
     
-    <button id="emailverify">Verify Email</button>
+    <!-- <button id="emailverify">Verify Email</button> -->
 
-    
     <header>
         <h1>The Learner Academy</h1>
+        <button id="signOutBtn">Log Out</button>
     </header>
-    
     <main>
         <div class="entry-test">
             <h2>Entry Test</h2>
@@ -25,31 +24,65 @@
             <button class="start-entry-test-btn">Start Entry Test</button>
         </div>
     
-        <div class="quiz-card">
-            <h2>HTML </h2>
-            <p>This is the first course, focusing on HTML.You can start Quiz 1 to test your knowledge.</p>
-            <button class="start-quiz-btn">Start Quiz 1</button>
-        </div>
         
+        <div class="quiz-card">
+            <h2 >HTML </h2>
+            <p>This is the first course, focusing on HTML.You can start Quiz 1 to test your knowledge.</p>
+            <button  class="start-quiz1-btn">Start Quiz 1</button>
+        </div>
         <div class="quiz-card">
             <h2>CSS </h2>
             <p>The second course is all about CSS.
                 Click "Start Quiz 2" to begin.</p>
-            <button class="start-quiz-btn">Start Quiz 2</button>
+            <button  class="start-quiz2-btn">Start Quiz 2</button>
         </div>
         
         <div class="quiz-card">
             <h2>Java Script (ES5)</h2>
             <p>Course 3 covers JavaScript (ES5).
                 Begin Quiz 3 by clicking the button.</p>
-            <button class="start-quiz-btn">Start Quiz 3</button>
+            <button class="start-quiz3-btn">Start Quiz 3</button>
         </div>
 
         <div id="quiz-popup" class="quiz-popup">
             <div class="quiz-content">
-                <h2>Quiz 1</h2>
-                <!-- Add your quiz questions and options here -->
-                <button  id="close-popup" class="close-popup-btn">Close</button>
+                <span id="timer"></span>
+                <div id="quiz-head">
+                    <h2 id="quiznum"></h2>
+                <h2 id="course"></h2>
+                
+                </div>
+            <div class="quest">
+                <div >
+                    <p id="questions"></p>
+                <div>
+                    <label  id="answer1">
+                        <input type="radio" name="answer" value="1">
+                        <span id="option1"></span>
+                    </label>
+                </div>
+                <div>
+                    <label   id="answer2">
+                        <input type="radio" name="answer" value="2">
+                        <span id="option2"></span>
+                    </label>
+                </div>
+                <div>
+                    <label   id="answer3">
+                        <input type="radio" name="answer" value="3">
+                        <span id="option3"></span>
+                    </label>
+                </div>
+
+            </div>
+                
+               
+<div >
+    <button disabled id="nextbtn">Next</button>
+</div>
+
+                </div>
+                
             </div>
    
         </div>
@@ -65,8 +98,13 @@
 
 
 
-    <script type="module" src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script type="module" src="./authservice.js"></script>
+
+<script type="module" src="./quiz.js"></script>
+
+    <!-- <script type="module" src="app.js"></script>
     <script  type="module" src="login.js"></script>
-    
+     -->
 </body>
 </html>
