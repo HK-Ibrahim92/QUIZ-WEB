@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="quiz.css">
+    
+    <link rel="stylesheet"  type="text/css" href="quiz.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Document</title>
@@ -13,7 +13,19 @@
     
     <!-- <button id="emailverify">Verify Email</button> -->
 
-    <header>
+<!-- Modal -->
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Your Test Results</h2>
+      
+      <ul id="scores-list"></ul>
+    </div>
+  </div>
+   
+
+<header>
+        <button id="getresult">Results</button>
         <h1>The Learner Academy</h1>
         <button id="signOutBtn">Log Out</button>
     </header>
@@ -80,6 +92,7 @@
 <div >
     <button disabled id="nextbtn">Next</button>
 </div>
+
 
                 </div>
                 

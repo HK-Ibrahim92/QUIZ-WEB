@@ -60,8 +60,23 @@ login.addEventListener('click', async () => {
 //   }
 // });
 
+
+let forgot=document.getElementById("forgot")
+
+
+function forgotpassword(){
+  Swal.fire({
+    icon: 'info',
+    title: 'Keep Calm !',
+    text: `Try To Remember Your Password  `,
+});
+}
+
+forgot.addEventListener('click',forgotpassword)
+
 function signUpButton() {
     container.classList.add('right-panel-active');
+      
 };
 
 function signInButton() {

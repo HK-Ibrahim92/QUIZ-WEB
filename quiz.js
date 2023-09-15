@@ -1,195 +1,21 @@
 
-let html = [
-    {
-        question: 'What does HTML stand for?',
-        option1: 'Hyperlinks and Text Markup Language',
-        option2: 'Hypertext Markup Language',
-        option3: 'Home Tool Markup Language',
-        correctOption: "Hypertext Markup Language"
-    },
-    {
-        question: 'Who is making the Web standards?',
-        option1: 'Google',
-        option2: 'The World Wide Web Consortium',
-        option3: 'Microsoft',
-        correctOption: "The World Wide Web Consortium"
-    },
-    {
-        question: 'Choose the correct HTML element for the largest heading:',
-        option1: '<heading>',
-        option2: '<h6>',
-        option3: '<h1>',
-        correctOption: "<h1>"
-    },
-    {
-        question: 'What is the correct HTML element for inserting a line break?',
-        option1: '<linebreak>',
-        option2: '<br>',
-        option3: '<break>',
-        correctOption: "<br>"
-    },
-    {
-        question: 'What is the correct HTML for adding a background color?',
-        option1: '<body bg="yellow">',
-        option2: '<background>yellow</background>',
-        option3: '<body style="background-color:yellow;">',
-        correctOption: '<body style="background-color:yellow;">'
-    },
-    {
-        question: 'Choose the correct HTML element to define important text:',
-        option1: '<strong>',
-        option2: '<b>',
-        option3: '<i>',
-        correctOption: '<strong>'
-    },
-    {
-        question: 'Choose the correct HTML element to define emphasized text:',
-        option1: '<italic>',
-        option2: '<i>',
-        option3: '<em>',
-        correctOption: "<em>"
-    },
-    
-    {
-        question: 'Which character is used to indicate an end tag?',
-        option1: '*',
-        option2: '/',
-        option3: '<',
-        correctOption: "/"
-    },
-    {
-        question: 'How can you open a link in a new tab/browser window?',
-        option1: '<a href="url" target="new">',
-        option2: '<a href="url" new>',
-        option3: '<a href="url" target="_blank">',
-        correctOption: '<a href="url" target="_blank">'
-    },
-    {
-        question: 'Which of these elements are all <table> elements?',
-        option1: '<table> <tr> <td>',
-        option2: '<table> <head> <tfoot>',
-        option3: '<table> <tr> <tt>',
-        correctOption: "<table> <tr> <td>"
-    },
-    {
-        question: 'Inline elements are normally displayed without starting a new line.',
-        option1: 'True',
-        option2: 'False',
-        correctOption: "True"
-    },
-    {
-        question: 'Choose the correct HTML element for the smallest heading:',
-        option1: '<heading>',
-        option2: '<h5>',
-        option3: '<h6>',
-        correctOption: "<h6>"
-    },
-    {
-        question: "How can you make a numbered list?",
-        option1: '<dl>',
-        option2: '<ul>',
-        option3: '<ol>',
-        option4: '<list>',
-        correctOption: "<ol>"
-    },
-    {
-        question: 'How can you make a bulleted list?',
-        option1: '<ol>',
-        option2: '<list>',
-        option3: '<ul>',
-        option4: '<dl>',
-        correctOption: "<ul>"
-    },
-    {
-        question: 'What is the correct HTML for inserting an image?',
-        option1: '<img alt="MyImage">image.gif</img>',
-        option2: '<img href="image.gif" alt="MyImage">',
-        option3: '<img src="image.gif" alt="MyImage">',
-        option4: '<image src="image.gif" alt="MyImage">',
-        correctOption: '<img src="image.gif" alt="MyImage">'
-    },
-    {
-        question: 'What is the correct HTML for making a checkbox?',
-        option1: '<iput type="check">',
-        option2: '<check>',
-        option3: '<checkbox>',
-        option4: '<input type="checkbox">',
-        correctOption: '<input type="checkbox">'
-    },
-    {
-        question: "What is the correct HTML for making a text input field?",
-        option1: '<input type="textfield">',
-        option2: '<input type="text">',
-        option3: '<textfield>',
-        option4: '<textinput type="textfield">',
-        correctOption: '<input type="text">'
-    },
-    {
-        question: 'What is the correct HTML for making a drop-down list?',
-        option1: '<input type="list">',
-        option2: '<list>',
-        option3: '<input type="dropdown">',
-        option4: '<select>',
-        correctOption: '<select>'
-    },
-    {
-        question: 'What is the correct HTML for making a text area?',
-        option1: '<input type="textbox">',
-        option2: '<input type="textarea">',
-        option3: '<textarea>',
-        correctOption: '<textarea>'
-    },
-    {
-        question: 'What is the correct HTML for inserting a background image?',
-        option1: '<background img="background.gif">',
-        option2: '<body bg="background.gif">',
-        option3: '<body style="background-image:url(background.gif)">',
-        correctOption: '<body style="background-image:url(background.gif)">'
-    }
-]
 
 
+import { signOutUser, userscore, observeAuthState,result } from './authservice.js'
 
-import { signOutUser } from './authservice.js'
-const startentrytest=document.querySelector(".start-entry-test-btn")
-
+const startentrytest = document.querySelector(".start-entry-test-btn");
 const startquiz1 = document.querySelector('.start-quiz1-btn');
-
 const quizPopup = document.getElementById('quiz-popup');
-
-
 const startquiz2 = document.querySelector('.start-quiz2-btn');
-
-
 const startquiz3 = document.querySelector(".start-quiz3-btn")
 
-startentrytest.addEventListener('click', function () {
-    quizPopup.style.display = 'flex';
-    checkentry();
-});
-
-
-startquiz1.addEventListener('click', function () {
-    quizPopup.style.display = 'flex';
-    check1();
-});
-
-
-startquiz2.addEventListener('click', function () {
-    quizPopup.style.display = 'flex';
-    check2();
-});
-
-startquiz3.addEventListener('click', function () {
-    quizPopup.style.display = 'flex';
-    check3();
-});
 
 const signOutBtn = document.getElementById('signOutBtn');
 
+
+
 let course = document.getElementById("course")
 let quiznum = document.getElementById("quiznum")
-let index = 0;
 let questions = document.getElementById("questions")
 let option1 = document.getElementById("option1")
 let option2 = document.getElementById("option2")
@@ -201,6 +27,9 @@ let answer2 = document.getElementById("answer2")
 let answer3 = document.getElementById("answer3")
 
 let answer = document.getElementsByName("answer")
+
+var finalscore1, finalscore2, finalscore3, finalscore4;
+
 
 function answer1select() {
     nextbtn.disabled = false
@@ -223,234 +52,352 @@ function answer3select() {
 }
 
 answer3.addEventListener('click', answer3select)
+let sec;
 
 
-let timer=document.getElementById("timer")
-let sec=60;
-let score = 0;
-let q=1;
+function checkentry() {
 
-function  checkentry() {
+    function next1() {
 
-    setInterval(function(){
-        timer.innerHTML=`00:${sec}`
-        sec--
-        if(sec==0){
-            next()
-            sec=60;
-        }
-    },1000)
-    
-    
-        function next() {
-            sec=60
-            for (var i = 0; i < answer.length; i++) {
-                if (answer[i].checked) {
-                    var selected = computerBasics[index - 1][`option${answer[i].value}`]
-                    var correctoption = computerBasics[index - 1].correctOption;
-    
-                    // console.log(selected)
-                    // console.log(correctoption)
-                    if (selected == correctoption) {
-                        score++
-                        
-                    }
-                }
-                answer[i].checked = false
-                nextbtn.disabled = true
+        course.innerText = "computer Basics"
+        quiznum.innerText = "Entry Test"
+
+        for (var i = 0; i < answer.length; i++) {
+            if (answer[i].checked) {
+                var selected = computerBasics[index - 1][`option${answer[i].value}`]
+                var correctoption = computerBasics[index - 1].correctOption;
+                if (selected == correctoption) {
+                    score++
+}
             }
-            course.innerText = "computer Basics"
-            quiznum.innerText = "Entry Test"
-    
-            if (index < computerBasics.length) {
-                questions.innerText ="Q"+q+ computerBasics[index].question
-    
-                option1.innerText = computerBasics[index].option1
-                option2.innerText = computerBasics[index].option2
-                option3.innerText = computerBasics[index].option3
-                index++
-                q++
-            } else {
-                var finalscore=score*100/html.length
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Quiz completed!',
-                    text: `Your score is: ${finalscore}% `,
-                });
-               }
+            answer[i].checked = false
+            nextbtn.disabled = true
         }
-        next()
-        nextbtn.addEventListener('click', next)
-    }
+        if (index < computerBasics.length) {
+            questions.innerText = "Q." + q + computerBasics[index].question
 
+            option1.innerText = computerBasics[index].option1
+            option2.innerText = computerBasics[index].option2
+            option3.innerText = computerBasics[index].option3
+
+            index++
+            q++
+        } else {
+            finalscore1 = Math.round(score * 100 / computerBasics.length)
+            index = 0;
+            startentrytest.disabled = true
+            startentrytest.style.background = 'red'
+            userscore(finalscore1)
+            q = 1
+           
+            Swal.fire({
+                icon: 'success',
+                title: 'Entry Quiz completed!',
+                text: `Your score is: ${finalscore1}% `,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (result.isConfirmed) {
+                        setTimeout(() => {
+                         location.reload();
+                        }, 2000);   
+                }}
+            });
+            quizPopup.style.display = 'none';
+        }
+        function startTimer() {
+            sec=30
+            timer.innerHTML = `00:${sec}`;
+            
+            intervalId = setInterval(function () {
+              timer.innerHTML = `00:${sec}`;
+              sec--;
+              
+              if (sec === 0) {
+                  // next2();
+                  clearInterval(intervalId);
+              }
+            }, 1000);
+          }
+         
+          startTimer();
+    }
+    next1()
+    nextbtn.addEventListener('click', next1)
+}
+
+let solution = true
 
 
 function check1() {
+    let index=0,q=1,score=0,sec=30
 
-setInterval(function(){
-    timer.innerHTML=`00:${sec}`
-    sec--
-    if(sec==0){
-        next()
-        sec=60;
-    }
-},1000)
+    function next2() {
+        // console.log("sec:"+sec,"index:"+index,"q:"+q)
+        course.innerText = "Html"
+        quiznum.innerText = "Quiz 1"
+        let intervalId; // Declare a variable to store the interval ID
 
-
-    function next() {
-        sec=60
+        function startTimer() {
+          sec=30
+          timer.innerHTML = `00:${sec}`;
+          
+          intervalId = setInterval(function () {
+            timer.innerHTML = `00:${sec}`;
+            sec--;
+            
+            if (sec === 0) {
+                // next2();
+                clearInterval(intervalId);
+            }
+          }, 1000);
+        }
+       
+        startTimer(); 
+        
         for (var i = 0; i < answer.length; i++) {
             if (answer[i].checked) {
                 var selected = html[index - 1][`option${answer[i].value}`]
                 var correctoption = html[index - 1].correctOption;
 
-                // console.log(selected)
-                // console.log(correctoption)
                 if (selected == correctoption) {
                     score++
-                    
-                }
-            }
+                    console.log("score:"+score)
+} }
             answer[i].checked = false
             nextbtn.disabled = true
         }
-        course.innerText = "Html"
-        quiznum.innerText = "Quiz 1"
+        
+        console.log(index)
 
         if (index < html.length) {
-            questions.innerText ="Q"+q+ html[index].question
-
+            
+            questions.innerText = "Q." + q + html[index].question
             option1.innerText = html[index].option1
             option2.innerText = html[index].option2
             option3.innerText = html[index].option3
             index++
             q++
         } else {
-            var finalscore=score*100/html.length
-            Swal.fire({
-                icon: 'success',
-                title: 'Quiz completed!',
-                text: `Your score is: ${finalscore}% `,
-            });
-           }
+            
+            finalscore2 = Math.round(score * 100 / html.length)
+            userscore("Html", finalscore2)
+            index=0
+            q=1
+           
+            
+            startquiz1.disabled = true
+                  startquiz1.style.background = 'red'
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'HTML Quiz completed!',
+                    text: `Your score is: ${finalscore2}% `,
+                }).then((result) => {
+                
+                    if (result.isConfirmed) {
+                       setTimeout(() => {
+                        location.reload();
+                       }, 2000);
+                        
+                    }
+                });
+                
+                quizPopup.style.display = 'none';
+            
+        }  }
+    nextbtn.addEventListener('click', next2)
+    if (solution) {
+        next2()
+        solution = false
+
     }
-    next()
-    nextbtn.addEventListener('click', next)
 }
+let functioncheck2=true;
+
 function check2() {
-
-    setInterval(function(){
-        timer.innerHTML=`00:${sec}`
-        sec--
-        if(sec==0){
-            next()
-            sec=60;
-        }
-    },1000)
     
-    course.innerText = "CSS"
-    quiznum.innerText = "Quiz 2"
-
-    function next() {
-        sec=60
+    let index=0,q=1,score=0,sec=30
+    function next3() {
         for (var i = 0; i < answer.length; i++) {
             if (answer[i].checked) {
                 var selected = css[index - 1][`option${answer[i].value}`]
                 var correctoption = css[index - 1].correctOption;
 
-                // console.log(selected)
-                // console.log(correctoption)
                 if (selected == correctoption) {
                     score++
-                    
                 }
             }
             answer[i].checked = false
             nextbtn.disabled = true
         }
-
-    
         if (index < css.length) {
-            questions.innerText ="Q"+q+ css[index].question
+            course.innerText = "CSS"
+            quiznum.innerText = "Quiz 2"
+    
+            questions.innerText = "Q." + q + css[index].question
 
             option1.innerText = css[index].option1
             option2.innerText = css[index].option2
             option3.innerText = css[index].option3
+      
             index++
-                q++
+            q++
         } else {
-            var finalscore=score*100/html.length
+            
+            finalscore3 = Math.round(score * 100 / css.length)
+            userscore("CSS", finalscore3)            
+            startquiz2.disabled = true
+            startquiz2.style.background = 'red'
+            quizPopup.style.display = 'none';
+            index = 0
+            q = 1
+
             Swal.fire({
                 icon: 'success',
-                title: 'Quiz completed!',
-                text: `Your score is: ${finalscore}% `,
-            });
-           }
-    }
+                title: 'CSS Quiz completed!',
+                text: `Your score is: ${finalscore3}% `,
+            }).then((result) => {
+                
+                if (result.isConfirmed) {
+                    setTimeout(() => {
+                        location.reload();
+                       }, 2000);
+                }
 
-    next()
-    nextbtn.addEventListener('click', next)
+            });
+           
+        }
+        
+        let intervalId; 
+
+        function startTimer() {
+           sec=30
+          timer.innerHTML = `00:${sec}`;
+          
+          intervalId = setInterval(function () {
+            timer.innerHTML = `00:${sec}`;
+            sec--;
+            
+            if (sec === 0) {
+              clearInterval(intervalId); // Stop the interval when sec reaches 0
+             
+            //   next3();
+            }
+          }, 1000);
+        }
+        startTimer();
+    }
+if(functioncheck2){
+    next3()
+    functioncheck2=false;
+}
+    
+    nextbtn.addEventListener('click',next3)
 }
 function check3() {
+    
+    let index=0,q=1,score=0,sec=30
+function next4(){
+    let intervalId; // Declare a variable to store the interval ID
 
-    setInterval(function(){
-        timer.innerHTML=`00:${sec}`
-        sec--
-        if(sec==0){
-            next()
-            sec=60;
+    function startTimer() {
+      let sec = 60;
+      timer.innerHTML = `00:${sec}`;
+      
+      intervalId = setInterval(function () {
+        timer.innerHTML = `00:${sec}`;
+        sec--;
+        
+        if (sec === 0) {
+          clearInterval(intervalId); // Stop the interval when sec reaches 0
         }
-    },1000)
+      }, 1000);
+    }
+    startTimer();
 
     course.innerText = "Java Script"
     quiznum.innerText = "Quiz 3"
 
-
-
-
-    function next() {
-        sec=60
+    
+        sec = 60
 
         for (var i = 0; i < answer.length; i++) {
             if (answer[i].checked) {
                 var selected = js[index - 1][`option${answer[i].value}`]
                 var correctoption = js[index - 1].correctOption;
-    
-                // console.log(selected)
-                // console.log(correctoption)
+
                 if (selected == correctoption) {
                     score++
-                    
+
                 }
             }
             answer[i].checked = false
             nextbtn.disabled = true
         }
+    if (index < js.length) {
+        questions.innerText = "Q." + q + js[index].question
 
-        if (index < js.length) {
-            questions.innerText ="Q"+q+ js[index].question
- 
-            option1.innerText = js[index].option1
-            option2.innerText = js[index].option2
-            option3.innerText = js[index].option3
-     
+        option1.innerText = js[index].option1
+        option2.innerText = js[index].option2
+        option3.innerText = js[index].option3
+
+       
             index++
-                q++
-        } else {
-            var finalscore=score*100/html.length
-            Swal.fire({
-                icon: 'success',
-                title: 'Quiz completed!',
-                text: `Your score is: ${finalscore}% `,
-            });
-           }
- 
+            q++
+
+        
+    } else {
+        finalscore4 = Math.round(score * 100 / js.length)
+        userscore(finalscore4)
+        index = 0
+        
+        startquiz3.disabled = true
+        startquiz3.style.background = 'red'
+
+        q = 1
+        quizPopup.style.display = 'none';
+        Swal.fire({
+            icon: 'success',
+            title: 'JavaScript Quiz completed!',
+            text: `Your score is: ${finalscore4}% `,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setTimeout(() => {
+                    location.reload();
+                   }, 1500);
+                
+            }
+        });
+  
+       
     }
-    next()
-    nextbtn.addEventListener('click', next)
+}
+    next4()
+    nextbtn.addEventListener('click', next4)
+
 }
 
+startentrytest.addEventListener('click', function () {
+    quizPopup.style.display = 'flex';
+    checkentry();
+});
 
+
+startquiz1.addEventListener('click', function () {
+    quizPopup.style.display = 'flex';
+    check1();
+
+});
+
+
+startquiz2.addEventListener('click', function () {
+    quizPopup.style.display = 'flex';
+    check2();
+});
+
+startquiz3.addEventListener('click', function () {
+    quizPopup.style.display = 'flex';
+    check3();
+});
 
 
 //==========LOG OUT ===============
@@ -479,142 +426,291 @@ signOutBtn.addEventListener('click', () => {
         }
     });
 });
+const getresult=document.querySelector("#getresult")
 
+getresult.addEventListener('click', result)
 
+let html = [
+    {
+        question: 'What does HTML stand for?',
+        option1: 'Hyperlinks and Text Markup Language',
+        option2: 'Hypertext Markup Language',
+        option3: 'Home Tool Markup Language',
+        correctOption: "Hypertext Markup Language"
+    },
+    {
+        question: 'Who is making the Web standards?',
+        option1: 'Google',
+        option2: 'The World Wide Web Consortium',
+        option3: 'Microsoft',
+        correctOption: "The World Wide Web Consortium"
+    },
+    {
+        question: 'Choose the correct HTML element for the largest heading:',
+        option1: '<heading>',
+        option2: '<h6>',
+        option3: '<h1>',
+        correctOption: "<h1>"
+    }
+    // {
+    //     question: 'What is the correct HTML element for inserting a line break?',
+    //     option1: '<linebreak>',
+    //     option2: '<br>',
+    //     option3: '<break>',
+    //     correctOption: "<br>"
+    // },
+    // {
+    //     question: 'What is the correct HTML for adding a background color?',
+    //     option1: '<body bg="yellow">',
+    //     option2: '<background>yellow</background>',
+    //     option3: '<body style="background-color:yellow;">',
+    //     correctOption: '<body style="background-color:yellow;">'
+    // },
+    // {
+    //     question: 'Choose the correct HTML element to define important text:',
+    //     option1: '<strong>',
+    //     option2: '<b>',
+    //     option3: '<i>',
+    //     correctOption: '<strong>'
+    // },
+    // {
+    //     question: 'Choose the correct HTML element to define emphasized text:',
+    //     option1: '<italic>',
+    //     option2: '<i>',
+    //     option3: '<em>',
+    //     correctOption: "<em>"
+    // },
 
+    // {
+    //     question: 'Which character is used to indicate an end tag?',
+    //     option1: '*',
+    //     option2: '/',
+    //     option3: '<',
+    //     correctOption: "/"
+    // },
+    // {
+    //     question: 'How can you open a link in a new tab/browser window?',
+    //     option1: '<a href="url" target="new">',
+    //     option2: '<a href="url" new>',
+    //     option3: '<a href="url" target="_blank">',
+    //     correctOption: '<a href="url" target="_blank">'
+    // },
+    // {
+    //     question: 'Which of these elements are all <table> elements?',
+    //     option1: '<table> <tr> <td>',
+    //     option2: '<table> <head> <tfoot>',
+    //     option3: '<table> <tr> <tt>',
+    //     correctOption: "<table> <tr> <td>"
+    // },
+    // {
+    //     question: 'Inline elements are normally displayed without starting a new line.',
+    //     option1: 'True',
+    //     option2: 'False',
+    //     correctOption: "True"
+    // },
+    // {
+    //     question: 'Choose the correct HTML element for the smallest heading:',
+    //     option1: '<heading>',
+    //     option2: '<h5>',
+    //     option3: '<h6>',
+    //     correctOption: "<h6>"
+    // },
+    // {
+    //     question: "How can you make a numbered list?",
+    //     option1: '<dl>',
+    //     option2: '<ul>',
+    //     option3: '<ol>',
+    //     option4: '<list>',
+    //     correctOption: "<ol>"
+    // },
+    // {
+    //     question: 'How can you make a bulleted list?',
+    //     option1: '<ol>',
+    //     option2: '<list>',
+    //     option3: '<ul>',
+    //     option4: '<dl>',
+    //     correctOption: "<ul>"
+    // },
+    // {
+    //     question: 'What is the correct HTML for inserting an image?',
+    //     option1: '<img alt="MyImage">image.gif</img>',
+    //     option2: '<img href="image.gif" alt="MyImage">',
+    //     option3: '<img src="image.gif" alt="MyImage">',
+    //     option4: '<image src="image.gif" alt="MyImage">',
+    //     correctOption: '<img src="image.gif" alt="MyImage">'
+    // },
+    // {
+    //     question: 'What is the correct HTML for making a checkbox?',
+    //     option1: '<iput type="check">',
+    //     option2: '<check>',
+    //     option3: '<checkbox>',
+    //     option4: '<input type="checkbox">',
+    //     correctOption: '<input type="checkbox">'
+    // },
+    // {
+    //     question: "What is the correct HTML for making a text input field?",
+    //     option1: '<input type="textfield">',
+    //     option2: '<input type="text">',
+    //     option3: '<textfield>',
+    //     option4: '<textinput type="textfield">',
+    //     correctOption: '<input type="text">'
+    // },
+    // {
+    //     question: 'What is the correct HTML for making a drop-down list?',
+    //     option1: '<input type="list">',
+    //     option2: '<list>',
+    //     option3: '<input type="dropdown">',
+    //     option4: '<select>',
+    //     correctOption: '<select>'
+    // },
+    // {
+    //     question: 'What is the correct HTML for making a text area?',
+    //     option1: '<input type="textbox">',
+    //     option2: '<input type="textarea">',
+    //     option3: '<textarea>',
+    //     correctOption: '<textarea>'
+    // },
+    // {
+    //     question: 'What is the correct HTML for inserting a background image?',
+    //     option1: '<background img="background.gif">',
+    //     option2: '<body bg="background.gif">',
+    //     option3: '<body style="background-image:url(background.gif)">',
+    //     correctOption: '<body style="background-image:url(background.gif)">'
+    // }
+]
 
 
 
 
 
 let css = [
-    {
-        question: 'What does CSS stand for?',
-        option1: 'Colorful Style Sheet',
-        option2: 'Computer Style Sheet',
-        option3: 'Cascading Style Sheet',
-        option4: 'Creative Style Sheet',
-        correctOption: 'Cascading Style Sheet'
-    },
-    {
-        question: 'What is the correct HTML for referring to an external style sheet?',
-        option1: '<stylesheet>mystyle.css</stylesheet>',
-        option2: '<style src="mystyle.css">',
-        option3: '<link rel="stylesheet" type="text/css" href="mystyle.css">',
-        correctOption: '<link rel="stylesheet" type="text/css" href="mystyle.css">'
-    },
-    {
-        question: 'Where in an HTML document is the correct place to refer to an external style sheet?',
-        option1: 'In the <body> section',
-        option2: 'In the <head> section',
-        option3: 'At the end of the document',
-        correctOption: 'In the <head> section'
-    },
-    {
-        question: 'Which HTML tag is used to define an internal style sheet?',
-        option1: '<css>',
-        option2: '<style>',
-        option3: '<script>',
-        correctOption: '<style>'
-    },
-    {
-        question: 'Which HTML attribute is used to define inline styles?',
-        option1: 'styles',
-        option2: 'font',
-        option3: 'style',
-        option3: 'class',
-        correctOption: 'style'
-    },
-    {
-        question: 'Which is the correct CSS syntax?',
-        option1: 'body{color: black;}',
-        option2: '{body:color=black;}',
-        option3: 'body:color=black;',
-        option4: '{body;color:black;}',
-        correctOption: 'body{color: black;}'
-    },
-    {
-        question: 'How do you insert a comment in a CSS file?',
-        option1: '/*this is a comment*/',
-        option2: '//this is a comment',
-        option3: '//this is a comment//',
-        option3: "'this is a comment",
-        correctOption: '/*this is a comment*/'
-    },
-    {
-        question: 'Which property is used to change the background color?',
-        option1: 'bgcolor',
-        option2: 'color',
-        option3: 'background-color',
-        correctOption: 'background-color'
-    },
-    {
-        question: 'How do you add a background color for all <h1> elements?',
-        option1: 'h1 {background-color:#FFFFFF;}',
-        option2: 'h1.all {background-color:#FFFFFF;}',
-        option3: 'all.h1 {background-color:#FFFFFF;}',
-        correctOption: 'h1 {background-color:#FFFFFF;}'
-    },
-    {
-        question: 'Which CSS property is used to change the text color of an element?',
-        option1: 'color',
-        option2: 'text-color',
-        option3: 'fgcolor',
-        correctOption: 'color'
-    },
-    {
-        question: 'Which CSS property controls the text size?',
-        option1: 'font-size',
-        option2: 'text-style',
-        option3: 'text-size',
-        option4: 'font-style',
-        correctOption: 'font-size'
-    },
-    {
-        question: 'What is the correct CSS syntax for making all the <p> elements bold?',
-        option1: 'p {font-weight:bold;}',
-        option2: '<p style="font-size:bold;">',
-        option3: '<p style="text-size:bold;">',
-        option4: 'p {text-size:bold;}',
-        correctOption: 'p {font-weight:bold;}'
-    },
-    {
-        question: 'How do you display hyperlinks without an underline?',
-        option1: 'a {underline:none;}',
-        option2: 'a {decoration:no-underline;}',
-        option3: 'a {text-decoration:no-underline;}',
-        option4: 'a {text-decoration:none;}',
-        correctOption: 'a {text-decoration:none;}'
-    },
-    {
-        question: 'How do you make each word in a text start with a capital letter?',
-        option1: 'text-style:capitalize',
-        option2: 'text-transform:capitalize',
-        option3: 'You can not do that with CSS',
-        option4: 'transform:capitalize',
-        correctOption: 'text-style:capitalize'
-    },
-    {
-        question: 'Which property is used to change the font of an element?',
-        option1: 'font-style',
-        option2: 'font-weight',
-        option3: 'font-family',
-        correctOption: 'font-family'
-    },
-    {
-        question: 'How do you make the text bold?',
-        option1: 'style:bold;',
-        option2: 'font:bold;',
-        option3: 'font-weight:bold;',
-        correctOption: 'font-weight:bold;'
-    },
-    {
-        question: 'Which property is used to change the left margin of an element?',
-        option1: 'margin-left',
-        option2: 'padding-left',
-        option3: 'indent',
-        correctOption: 'margin-left'
-    },
+    // {
+    //     question: 'What does CSS stand for?',
+    //     option1: 'Colorful Style Sheet',
+    //     option2: 'Computer Style Sheet',
+    //     option3: 'Cascading Style Sheet',
+    //     option4: 'Creative Style Sheet',
+    //     correctOption: 'Cascading Style Sheet'
+    // },
+    // {
+    //     question: 'What is the correct HTML for referring to an external style sheet?',
+    //     option1: '<stylesheet>mystyle.css</stylesheet>',
+    //     option2: '<style src="mystyle.css">',
+    //     option3: '<link rel="stylesheet" type="text/css" href="mystyle.css">',
+    //     correctOption: '<link rel="stylesheet" type="text/css" href="mystyle.css">'
+    // },
+    // {
+    //     question: 'Where in an HTML document is the correct place to refer to an external style sheet?',
+    //     option1: 'In the <body> section',
+    //     option2: 'In the <head> section',
+    //     option3: 'At the end of the document',
+    //     correctOption: 'In the <head> section'
+    // },
+    // {
+    //     question: 'Which HTML tag is used to define an internal style sheet?',
+    //     option1: '<css>',
+    //     option2: '<style>',
+    //     option3: '<script>',
+    //     correctOption: '<style>'
+    // },
+    // {
+    //     question: 'Which HTML attribute is used to define inline styles?',
+    //     option1: 'styles',
+    //     option2: 'font',
+    //     option3: 'style',
+    //     option3: 'class',
+    //     correctOption: 'style'
+    // },
+    // {
+    //     question: 'Which is the correct CSS syntax?',
+    //     option1: 'body{color: black;}',
+    //     option2: '{body:color=black;}',
+    //     option3: 'body:color=black;',
+    //     option4: '{body;color:black;}',
+    //     correctOption: 'body{color: black;}'
+    // },
+    // {
+    //     question: 'How do you insert a comment in a CSS file?',
+    //     option1: '/*this is a comment*/',
+    //     option2: '//this is a comment',
+    //     option3: '//this is a comment//',
+    //     option3: "'this is a comment",
+    //     correctOption: '/*this is a comment*/'
+    // },
+    // {
+    //     question: 'Which property is used to change the background color?',
+    //     option1: 'bgcolor',
+    //     option2: 'color',
+    //     option3: 'background-color',
+    //     correctOption: 'background-color'
+    // },
+    // {
+    //     question: 'How do you add a background color for all <h1> elements?',
+    //     option1: 'h1 {background-color:#FFFFFF;}',
+    //     option2: 'h1.all {background-color:#FFFFFF;}',
+    //     option3: 'all.h1 {background-color:#FFFFFF;}',
+    //     correctOption: 'h1 {background-color:#FFFFFF;}'
+    // },
+    // {
+    //     question: 'Which CSS property is used to change the text color of an element?',
+    //     option1: 'color',
+    //     option2: 'text-color',
+    //     option3: 'fgcolor',
+    //     correctOption: 'color'
+    // },
+    // {
+    //     question: 'Which CSS property controls the text size?',
+    //     option1: 'font-size',
+    //     option2: 'text-style',
+    //     option3: 'text-size',
+    //     option4: 'font-style',
+    //     correctOption: 'font-size'
+    // },
+    // {
+    //     question: 'What is the correct CSS syntax for making all the <p> elements bold?',
+    //     option1: 'p {font-weight:bold;}',
+    //     option2: '<p style="font-size:bold;">',
+    //     option3: '<p style="text-size:bold;">',
+    //     option4: 'p {text-size:bold;}',
+    //     correctOption: 'p {font-weight:bold;}'
+    // },
+    // {
+    //     question: 'How do you display hyperlinks without an underline?',
+    //     option1: 'a {underline:none;}',
+    //     option2: 'a {decoration:no-underline;}',
+    //     option3: 'a {text-decoration:no-underline;}',
+    //     option4: 'a {text-decoration:none;}',
+    //     correctOption: 'a {text-decoration:none;}'
+    // },
+    // {
+    //     question: 'How do you make each word in a text start with a capital letter?',
+    //     option1: 'text-style:capitalize',
+    //     option2: 'text-transform:capitalize',
+    //     option3: 'You can not do that with CSS',
+    //     option4: 'transform:capitalize',
+    //     correctOption: 'text-style:capitalize'
+    // },
+    // {
+    //     question: 'Which property is used to change the font of an element?',
+    //     option1: 'font-style',
+    //     option2: 'font-weight',
+    //     option3: 'font-family',
+    //     correctOption: 'font-family'
+    // },
+    // {
+    //     question: 'How do you make the text bold?',
+    //     option1: 'style:bold;',
+    //     option2: 'font:bold;',
+    //     option3: 'font-weight:bold;',
+    //     correctOption: 'font-weight:bold;'
+    // },
+    // {
+    //     question: 'Which property is used to change the left margin of an element?',
+    //     option1: 'margin-left',
+    //     option2: 'padding-left',
+    //     option3: 'indent',
+    //     correctOption: 'margin-left'
+    // },
     {
         question: 'When using the padding property; are you allowed to use negative values?',
         option1: 'Yes',
@@ -851,7 +947,7 @@ let computerBasics = [
         option3: 'Store files',
         option4: 'Play music',
         correctOption: 'Control cursor movement'
-    } ,
+    },
     {
         question: 'What does GPU stand for in computing?',
         option1: 'General Processing Unit',
